@@ -1,12 +1,18 @@
 <template>
     <Page>
-        <ActionBar title="Welcome to NativeScript-Vue!"/>
-        <FlexboxLayout flexDirection="column" backgroundColor="#3c495e">
-          <Label text="first" height="70" backgroundColor="#43b883"/>
+        <ActionBar title="Olá pessoal"/>
+        <GridLayout columns="1*" rows="2*, 3*" backgroundColor="#3c495e">
+          <Label row="0" col="1" backgroundColor="#43b883"/>
+          <!-- <Label text="first" height="70" backgroundColor="#43b883"/>
           <Label text="second" height="70" backgroundColor="#1c6b48"/>
-          <Label text="third" height="70" backgroundColor="#289062"/>
-          <Button text="Button" height="70" @tap="onButtonTap" class="button-margin" />
-        </FlexboxLayout>
+          <Label text="third" height="70" backgroundColor="#289062"/> -->
+          <Button text="Button"
+            height="70"
+            col="1" row="0"
+            borderRadius="50"
+            @tap="$router.push('/page')"
+            backgroundColor="white" />
+        </GridLayout>
     </Page>
 </template>
 
@@ -18,9 +24,6 @@
       }
     },
     methods: {
-      onButtonTap () {
-        alert('Olá pessoal!')
-      }
     },
   }
 </script>
@@ -36,8 +39,5 @@
         text-align: center;
         font-size: 30;
         color: #333333;
-    }
-    .button-margin {
-      margin-top: 300vh
     }
 </style>

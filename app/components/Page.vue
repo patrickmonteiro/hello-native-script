@@ -2,7 +2,11 @@
     <Page>
         <ActionBar title="PAGE"/>
         <GridLayout columns="1*" rows="2*, 3*" backgroundColor="#3c495e">
-          <Label text="PAGE" row="0" col="1" backgroundColor="#43b883"/>
+          <SegmentedBar>
+            <SegmentedBarItem title="First" />
+            <SegmentedBarItem title="Second" />
+            <SegmentedBarItem title="Third" />
+          </SegmentedBar>
         </GridLayout>
     </Page>
 </template>

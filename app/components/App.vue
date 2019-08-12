@@ -10,13 +10,14 @@
             height="70"
             col="1" row="0"
             borderRadius="50"
-            @tap="$router.push('/page')"
+            @tap="teste()"
             backgroundColor="white" />
         </GridLayout>
     </Page>
 </template>
 
 <script >
+// import Page from '@/components/Page'
   export default {
     data() {
       return {
@@ -24,6 +25,9 @@
       }
     },
     methods: {
+      teste () {
+         this.$router('Page')
+      }
     },
   }
 </script>

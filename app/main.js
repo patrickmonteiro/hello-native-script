@@ -1,11 +1,9 @@
 import Vue from 'nativescript-vue'
-import VueRouter from 'vue-router'
 import App from './components/App'
 import Page from './components/Page'
 import store from './store';
 
 import VueDevtools from 'nativescript-vue-devtools'
-Vue.use(VueRouter)
 
 if(TNS_ENV !== 'production') {
   Vue.use(VueDevtools)
@@ -13,20 +11,16 @@ if(TNS_ENV !== 'production') {
 // Prints Vue logs when --env.production is *NOT* set while building
 Vue.config.silent = (TNS_ENV === 'production')
 
-const router = new VueRouter({
-  pageRouting: true,
-  routes: [
-    {path: '', component: App},
-    {path: '/app', component: App},
-    {path: '/page', component: Page},
-    {path: '*', redirect: '/app'}
-  ]
-});
+const routes =  [
+  {name: 'Page', component: Page}
+]
 
-router.replace('/app')
+Vue.prototype.$router = (rota) => {
+  let nextRoute = routes.find((r) => r.name === rota).component
+  Vue.prototype.$navigateTo(nextRoute);
+}
 
 new Vue({
   store,
-  router,
   render: h => h('frame', [h(App)])
 }).$start()
